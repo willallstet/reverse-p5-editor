@@ -6,50 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>p5.js Drawing and Animation App</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/codemirror.min.css">
-    <style>
-        body {
-            display: flex;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            font-family: Arial, sans-serif;
-            justify-content: center;
-            align-items: center;
-        }
-        #editor {
-            width: 50%;
-            height: 90%;
-            border-left: 1px solid #000;
-            box-sizing: border-box;
-        }
-        #canvas-container {
-            width: 50%;
-            height: 90%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #f0f0f0;
-        }
-        canvas {
-            border: 2px solid black;
-        }
-        select {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            z-index: 10;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <div id="canvas-container">
+    <div class="containers">
+        <div id="tools">
         <select id="shapeSelect"></select>
-        <!--<select id="animationSelect" style="left: 150px;"></select> -->
+        <select hidden="true" id="animationSelect" style="left: 150px;"></select>
     </div>
-    <div id="right-container">
-        <div id="editor"></div>
-        <button id="runCodeButton">Run Code</button> <!-- Add this line -->
+        <div id="canvas-container">
+        </div>
+        <div id="right-container">
+            <div id="editor"></div>
+            <button hidden="true" id="runCodeButton">Run Code</button> <!-- Add this line -->
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>

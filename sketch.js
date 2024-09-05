@@ -9,8 +9,9 @@ let lastHighlightedLine = null;
 let rotationAngle = 0;
 
 function setup() {
-    let canvas = createCanvas(windowWidth / 2, windowHeight * 0.9);
+    let canvas = createCanvas(400, 400);
     canvas.parent('canvas-container');
+    canvas.style('border', '2px dashed black');
 
     let shapeSelect = select('#shapeSelect');
     shapeSelect.option('rectangle');
@@ -28,8 +29,8 @@ function setup() {
     //animationSelect.changed(() => animationType = animationSelect.value());
 
     let colorPicker = createColorPicker('#ff0000');
-    colorPicker.position(300, 10);
-    colorPicker.style('z-index', '10');
+    colorPicker.parent('tools');
+    colorPicker.style('margin-left', '10px');
     colorPicker.input(() => selectedColor = colorPicker.color());
 
     selectedColor = colorPicker.color(); // Set initial color
@@ -41,11 +42,13 @@ function setup() {
         theme: 'default',
         readOnly: false
     });
-    editor.setSize(windowWidth / 2, windowHeight *0.85);
+    //editor.setSize(windowWidth / 2, windowHeight * 0.90);
+    editor.setOption('theme', 'default');
+    editor.getWrapperElement().style.border = '2px dashed black';
     updateEditor(null); // Initial code display
 
     // Add event listener to the button
-    document.getElementById('runCodeButton').addEventListener('click', () => {
+    /*document.getElementById('runCodeButton').addEventListener('click', () => {
         try {
             let code = editor.getValue();
             console.log(code);
@@ -55,7 +58,7 @@ function setup() {
             let errorLine = error.lineNumber - 1;
             editor.markText({ line: errorLine, ch: 0 }, { line: errorLine, ch: Infinity }, { className: 'syntax-error' });
         }
-    });
+    });*/
 }
 
 function draw() {

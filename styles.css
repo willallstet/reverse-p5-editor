@@ -1,52 +1,38 @@
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-}
-
-h1 {
-    color: #333;
-}
-
-#toolbar {
-    margin: 20px;
-}
-
-button {
-    padding: 10px 20px;
-    margin: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    display: block; /* Ensure the button is displayed as a block element */
-    width: 50%; /* Match the width of the editor */
-    box-sizing: border-box; /* Ensure padding and border are included in the width */
-}
-
-#canvas {
-    border: 1px solid #000;
-    background-color: #fff;
-    display: block;
-    margin: 0 auto;
-    cursor: crosshair;
-}
-
-.CodeMirror .syntax-error {
-    background-color: #f97b7b;
-}
-
-#editor {
-    width: 50%;
-    height: 85%; /* Adjust height to make space for the button */
-    border-left: 1px solid #000;
-    box-sizing: border-box;
-}
-
-#right-container {
-    display: flex;
-    flex-direction: column;
+body{
+    justify-content: center;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+.containers {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 90vh;
+    width: 90vw;
+    margin: 0;
+    padding: 0;
+}
+#tools {
+    height: 5vh;
+}
+
+#canvas-container {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+#right-container {
+    width: 50%;
+}
+
+canvas {
+    border: 2px solid black;
 }
