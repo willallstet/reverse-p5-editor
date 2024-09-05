@@ -107,7 +107,7 @@ function mousePressed() {
 
 function mouseReleased() {
     // Check if the mouse is within the canvas and the width and height are each greater than 3px
-    if (mouseX < 0 || mouseX > windowWidth / 2 || mouseY < 0 || mouseY > windowHeight) {
+    if (mouseX < 0 || mouseX > 400 || mouseY < 0 || mouseY > 400) {
         return;
     }
 
@@ -150,7 +150,7 @@ function updateEditor(shape) {
 
     if (shape == null) {
         code = `function setup() {
-    createCanvas(${windowWidth / 2}, ${windowHeight * 0.9});
+    createCanvas(400, 400);
 }
 
 function draw() {
@@ -336,7 +336,11 @@ class Line extends Shape {
     }
 
     getCode() {
-        return `line(${this.x.toFixed(0)}, ${this.y.toFixed(0)}, ${this.x2.toFixed(0)}, ${this.y2.toFixed(0)})\n${this.getAnimationCode()};`;
+        return `push();
+    stroke(${this.color.levels[0]}, ${this.color.levels[1]}, ${this.color.levels[2]});
+    strokeWeight(2);
+    line(${this.x}, ${this.y}, ${this.x2}, ${this.y2});
+    pop();`;
     }
 
     update() {
@@ -369,7 +373,13 @@ class Circle extends Shape {
     }
 
     getCode() {
-        return `${this.getAnimationCode()}ellipse(${this.x.toFixed(0)}, ${this.y.toFixed(0)}, ${this.d.toFixed(0)}, ${this.d.toFixed(0)});`;
+        return `push();
+    translate(${this.x}, ${this.y});
+    rotate(${this.angle});
+    scale(${this.scale});
+    fill(${this.color.levels[0]}, ${this.color.levels[1]}, ${this.color.levels[2]});
+    ellipse(0, 0, ${this.d}, ${this.d});
+    pop();`;
     }
 
     update() {
@@ -403,7 +413,13 @@ class Triangle extends Shape {
     }
 
     getCode() {
-        return `${this.getAnimationCode()}triangle(${this.x1.toFixed(0)}, ${this.y1.toFixed(0)}, ${this.x2.toFixed(0)}, ${this.y2.toFixed(0)}, ${this.x3.toFixed(0)}, ${this.y3.toFixed(0)});`;
+        return `push();
+    translate(${this.x}, ${this.y});
+    rotate(${this.angle});
+    scale(${this.scale});
+    fill(${this.color.levels[0]}, ${this.color.levels[1]}, ${this.color.levels[2]});
+    triangle(${this.x1 - this.x}, ${this.y1 - this.y}, ${this.x2 - this.x}, ${this.y2 - this.y}, ${this.x3 - this.x}, ${this.y3 - this.y});
+    pop();`;
     }
 
     update() {
