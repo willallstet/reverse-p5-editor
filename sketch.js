@@ -40,7 +40,7 @@ function setup() {
         lineNumbers: true,
         mode: 'javascript',
         theme: 'default',
-        readOnly: false
+        readOnly: true
     });
     //editor.setSize(windowWidth / 2, windowHeight * 0.90);
     editor.setOption('theme', 'default');
