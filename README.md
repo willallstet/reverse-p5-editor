@@ -1,2 +1,3 @@
 # Welcome to reverse p5 editor!
 This is a [p5.js](https://p5js.org/) prototype I made that switches the canvas and code editor, translating what you draw into code! Yet again, I was interested in adding a new avenue to exploring code for novices. With this tool, the user can see the graphic changes directly, plainly reflected in the corresponding code! Try it out [here](https://willallstet.github.io/reverse-p5-editor/).
+![A sped up screen recording of someone using the website. They draw a snowman, copy the output code, paste it into the p5.js editor and it shows the same snowman.](https://github.com/user-attachments/assets/1d944e2b-9d85-493e-b577-71eb21b83cc0)
